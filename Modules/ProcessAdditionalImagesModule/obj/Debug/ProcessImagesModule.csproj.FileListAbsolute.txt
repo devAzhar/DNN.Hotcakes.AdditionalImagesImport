@@ -1,7 +1,0 @@
-C:\Users\Administrator\Desktop\HotCake\ProcessAdditionalImagesModule-01.01.00\ProcessAdditionalImagesModule-01.01.00\Modules\ProcessAdditionalImagesModule\bin\Hotcakes.Modules.ProcessAdditionalImagesModule.xml
-C:\Users\Administrator\Desktop\HotCake\ProcessAdditionalImagesModule-01.01.00\ProcessAdditionalImagesModule-01.01.00\Modules\ProcessAdditionalImagesModule\bin\Hotcakes.Modules.ProcessAdditionalImagesModule.dll
-C:\Users\Administrator\Desktop\HotCake\ProcessAdditionalImagesModule-01.01.00\ProcessAdditionalImagesModule-01.01.00\Modules\ProcessAdditionalImagesModule\bin\Hotcakes.Modules.ProcessAdditionalImagesModule.pdb
-C:\Users\Administrator\Desktop\HotCake\ProcessAdditionalImagesModule-01.01.00\ProcessAdditionalImagesModule-01.01.00\Modules\ProcessAdditionalImagesModule\obj\Debug\ProcessAdditionalImagesModule.csprojAssemblyReference.cache
-C:\Users\Administrator\Desktop\HotCake\ProcessAdditionalImagesModule-01.01.00\ProcessAdditionalImagesModule-01.01.00\Modules\ProcessAdditionalImagesModule\obj\Debug\ProcessAdditionalImagesModule.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\Desktop\HotCake\ProcessAdditionalImagesModule-01.01.00\ProcessAdditionalImagesModule-01.01.00\Modules\ProcessAdditionalImagesModule\obj\Debug\Hotcakes.Modules.ProcessAdditionalImagesModule.dll
-C:\Users\Administrator\Desktop\HotCake\ProcessAdditionalImagesModule-01.01.00\ProcessAdditionalImagesModule-01.01.00\Modules\ProcessAdditionalImagesModule\obj\Debug\Hotcakes.Modules.ProcessAdditionalImagesModule.pdb
