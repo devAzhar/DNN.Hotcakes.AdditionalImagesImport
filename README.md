@@ -1,1 +1,1 @@
-# DNN.Hotcakes.AdditionalImagesImport
+# DNN.Hotcakes.AdditionalImagesImport V1
