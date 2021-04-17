@@ -1,0 +1,81 @@
+<dotnetnuke type="Package" version="6.0">
+  <packages>
+    <package name="ProcessAdditionalImagesModule" type="Module" version="01.01.00">
+      <friendlyName>ProcessAdditionalImagesModule</friendlyName>
+      <description><![CDATA[This module allows you to tell Hotcakes Commerce to import images in the requisite import folder, either on demand or via a scheduled job.]]></description>
+      <iconFile>DesktopModules/ProcessAdditionalImagesModule/Images/Hotcakes-Icon.png</iconFile>
+      <owner>
+        <name>Upendo Ventures</name>
+        <organization>Upendo Ventures, LLC</organization>
+        <url>https://upendoventures.com</url>
+        <email>solutions@upendoventures.com</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <azureCompatible>True</azureCompatible>
+      <dependencies>
+        <dependency type="CoreVersion">09.02.02</dependency>
+        <dependency type="managedPackage" version="3.2.3">Hotcakes.Core</dependency>
+      </dependencies>
+      
+      <components>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>ProcessAdditionalImagesModule</moduleName>
+            <foldername>ProcessAdditionalImagesModule</foldername>
+            <businessControllerClass>Hotcakes.Modules.ProcessAdditionalImagesModule.Components.FeatureController, Hotcakes.Modules.ProcessAdditionalImagesModule</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>ProcessAdditionalImagesModule</friendlyName>
+                <defaultCacheTime>-1</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/ProcessAdditionalImagesModule/View.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/ProcessAdditionalImagesModule/Settings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>Hotcakes.Modules.ProcessAdditionalImagesModule.dll</name>
+              <version>01.01.00</version>
+            </assembly>
+          </assemblies>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/ProcessAdditionalImagesModule</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>
