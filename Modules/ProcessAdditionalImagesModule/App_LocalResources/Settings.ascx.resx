@@ -118,21 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BasicSettings.Text" xml:space="preserve">
-    <value>Scheduler Settings</value>
+    <value>Images Import Settings</value>
   </data>
   <data name="ControlTitle_settings.Text" xml:space="preserve">
-    <value>Process Images</value>
+    <value>Process Download Images</value>
   </data>
   <data name="HostOnly.Text" xml:space="preserve">
     <value>Only superusers may manage this setting.  Please contact someone who has superuser access on this website if you wish to manage this setting.</value>
   </data>
+  <data name="lblAdditionalFolderPath.Help" xml:space="preserve">
+    <value>Set the path for additional folder. System will pick all the images and try to import in respective product. Once image is processed, it will be moved to a processed folder. System should have write access to this folder.</value>
+  </data>
+  <data name="lblAdditionalFolderPath.Text" xml:space="preserve">
+    <value>Additional Images Folder Path</value>
+  </data>
+  <data name="lblDownloadFolderPath.Help" xml:space="preserve">
+    <value>Set the path for download folder. System will pick all the images and try to import in respective product. Once image is processed, it will be moved to a processed folder. System should have write access to this folder.</value>
+  </data>
+  <data name="lblDownloadFolderPath.Text" xml:space="preserve">
+    <value>Download Images Folder Path</value>
+  </data>
   <data name="lblHost.Text" xml:space="preserve">
     <value>The settings that you would have seen here are only available to superuser accounts. We apologize for any inconvenience that this may cause you.</value>
-  </data>
-  <data name="lblScheduledJob.Help" xml:space="preserve">
-    <value>When checked, the scheduled job will be created.  If the scheduled job doesn't already exist, it will be created for you.  Unchecking this checkbox will disable the scheduled job, but it will still exist in the Scheduler.</value>
-  </data>
-  <data name="lblScheduledJob.Text" xml:space="preserve">
-    <value>Scheduled Job Enabled</value>
   </data>
 </root>

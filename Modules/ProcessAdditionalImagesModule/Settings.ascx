@@ -7,10 +7,18 @@
 </h2>
 <fieldset runat="server" id="fldSettings">
     <div class="dnnFormItem">
-        <dnn:Label ID="lblScheduledJob" runat="server" /> 
-        <asp:CheckBox ID="chkScheduledJob" runat="server" />
+        <dnn:Label ID="lblDownloadFolderPath" runat="server" /> 
+        <asp:TextBox ID="txtDownloadsFolderPath" runat="server" />
     </div>
 </fieldset>
+
+<fieldset runat="server" id="fldSettings2">
+    <div class="dnnFormItem">
+        <dnn:Label ID="lblAdditionalFolderPath" runat="server" /> 
+        <asp:TextBox ID="txtAdditionalFolderPath" runat="server" />
+    </div>
+</fieldset>
+
 <div id="divMessage" class="dnnFormMessage dnnFormWarning" runat="server">
     <%=HostOnlyMessage %>
 </div>

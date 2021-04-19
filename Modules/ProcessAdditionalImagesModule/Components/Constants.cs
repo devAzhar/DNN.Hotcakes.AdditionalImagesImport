@@ -5,12 +5,15 @@ using System.Web;
 
 namespace Hotcakes.Modules.ProcessAdditionalImagesModule.Components
 {
-    public class Constants
+    public static class Constants
     {
         public const string IMPORT_DOWNLOAD_FOLDER_PATH = "import/additional/";
         public const string IMPORT_ADDITIIONAL_FOLDER_PATH = "import/additional/Watermarked/";
 
         public const string LOCALIZATION_FILE_PATH = "~/DesktopModules/ProcessAdditionalImagesModule/App_LocalResources/View.ascx.resx";
+
+        public const string SETTINGS_DOWNLOADS_PATH = "Hcc.ImportAdditionalImages.DownloadsPath";
+        public const string SETTINGS_ADDITIONAL_PATH = "Hcc.ImportAdditionalImages.AdditionalPath";
 
         public const string SETTINGS_SCHEDULER_ENABLED = "Hcc.ImportAdditionalImages.SchedulerEnabled";
         public const string SETTINGS_SCHEDULER_ID = "Hcc.ImportAdditionalImages.ScheduleJobId";

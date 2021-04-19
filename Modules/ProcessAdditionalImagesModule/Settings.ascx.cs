@@ -26,6 +26,8 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Instrumentation;
 using DotNetNuke.Services.Exceptions;
+using Hotcakes.Commerce;
+using Hotcakes.Commerce.Storage;
 using Hotcakes.Modules.ProcessAdditionalImagesModule.Components;
 using Hotcakes.Modules.ProcessAdditionalImagesModule.Services.Scheduler;
 
@@ -44,23 +46,31 @@ namespace Hotcakes.Modules.ProcessAdditionalImagesModule
         {
             try
             {
-                fldSettings.Visible = (UserInfo.IsSuperUser);
+                fldSettings.Visible = fldSettings2.Visible = (UserInfo.IsSuperUser);
                 divMessage.Visible = (!UserInfo.IsSuperUser);
 
                 if (UserInfo.IsSuperUser)
                 {
-                    var ctlScheduler = new DnnScheduleController();
-                    var blnEnabled = SchedulerEnabled;  // return the setting from module settings
+                    txtDownloadsFolderPath.Text = Convert.ToString(this.ModuleSettings[Constants.SETTINGS_DOWNLOADS_PATH]);
+                    txtAdditionalFolderPath.Text = Convert.ToString(this.ModuleSettings[Constants.SETTINGS_ADDITIONAL_PATH]);
 
-                    if (!SchedulerEnabled && ScheduledJobId > Null.NullInteger && ctlScheduler.ScheduledJobExists(ScheduledJobId))
-                    {
-                        // if the scheduled job exists already, override the logic here to correctly reflect the status
-                        // this can happen if someone manually creates the scheduled job
-                        var scheduledJob = ctlScheduler.GetScheduledJob(ScheduledJobId);
-                        blnEnabled = (scheduledJob.Enabled);
-                    }
+                    var context = HccRequestContext.Current;
 
-                    chkScheduledJob.Checked = blnEnabled;
+                    txtDownloadsFolderPath.Text = string.IsNullOrEmpty(txtDownloadsFolderPath.Text) ? string.Concat(DiskStorage.GetStoreDataVirtualPath(context.CurrentStore.Id), Constants.IMPORT_DOWNLOAD_FOLDER_PATH) : txtDownloadsFolderPath.Text;
+                    txtAdditionalFolderPath.Text = string.IsNullOrEmpty(txtAdditionalFolderPath.Text) ? string.Concat(DiskStorage.GetStoreDataVirtualPath(context.CurrentStore.Id), Constants.IMPORT_ADDITIIONAL_FOLDER_PATH) : txtAdditionalFolderPath.Text;
+
+                    //var ctlScheduler = new DnnScheduleController();
+                    //var blnEnabled = SchedulerEnabled;  // return the setting from module settings
+
+                    //if (!SchedulerEnabled && ScheduledJobId > Null.NullInteger && ctlScheduler.ScheduledJobExists(ScheduledJobId))
+                    //{
+                    //    // if the scheduled job exists already, override the logic here to correctly reflect the status
+                    //    // this can happen if someone manually creates the scheduled job
+                    //    // var scheduledJob = ctlScheduler.GetScheduledJob(ScheduledJobId);
+                    //    // blnEnabled = (scheduledJob.Enabled);
+                    //}
+
+                    // chkScheduledJob.Checked = blnEnabled;
                 }
             }
             catch (Exception exc) // module failed to load
@@ -77,33 +87,56 @@ namespace Hotcakes.Modules.ProcessAdditionalImagesModule
         {
             try
             {
+
+                if (!UserInfo.IsSuperUser)
+                {
+                    return;
+                }
+
                 var ctlSchedule = new DnnScheduleController();
                 var ctlModule = new ModuleController();
 
-				ctlModule.UpdateModuleSetting(ModuleId, Constants.SETTINGS_SCHEDULER_ENABLED, chkScheduledJob.Checked.ToString());
+                var path = txtDownloadsFolderPath.Text.Trim();
 
-                if (chkScheduledJob.Checked)
+                if (!string.IsNullOrEmpty(path) && !path.EndsWith("\\"))
                 {
-                    var scheduleJobId = Null.NullInteger; // local value not related to base settings
-
-                    if (ScheduledJobId == Null.NullInteger)
-                    {
-                        // one has not been created yet (because it's not in the module settings)
-                        scheduleJobId = ctlSchedule.CreateScheduledJob();
-                    }
-
-                    if (ScheduledJobId > Null.NullInteger)
-                    {
-                        // this should run if the scheduled job was previously created at some point, but since been disabled
-                        ctlSchedule.EnableScheduledJob(ScheduledJobId);
-                    }
+                    path = path + "\\";
                 }
 
-                if (!chkScheduledJob.Checked && ScheduledJobId > Null.NullInteger)
+                ctlModule.UpdateModuleSetting(ModuleId, Constants.SETTINGS_DOWNLOADS_PATH, path);
+
+
+                path = txtAdditionalFolderPath.Text.Trim();
+
+                if (!string.IsNullOrEmpty(path) && !path.EndsWith("\\"))
                 {
-                    // the schedule job was previously created so disable it
-                    ctlSchedule.DisableScheduledJob(ScheduledJobId);
+                    path = path + "\\";
                 }
+
+                ctlModule.UpdateModuleSetting(ModuleId, Constants.SETTINGS_ADDITIONAL_PATH, path);
+
+                //if (chkScheduledJob.Checked)
+                //{
+                //    var scheduleJobId = Null.NullInteger; // local value not related to base settings
+
+                //    if (ScheduledJobId == Null.NullInteger)
+                //    {
+                //        // one has not been created yet (because it's not in the module settings)
+                //        scheduleJobId = ctlSchedule.CreateScheduledJob();
+                //    }
+
+                //    if (ScheduledJobId > Null.NullInteger)
+                //    {
+                //        // this should run if the scheduled job was previously created at some point, but since been disabled
+                //        ctlSchedule.EnableScheduledJob(ScheduledJobId);
+                //    }
+                //}
+
+                //if (!chkScheduledJob.Checked && ScheduledJobId > Null.NullInteger)
+                //{
+                //    // the schedule job was previously created so disable it
+                //    ctlSchedule.DisableScheduledJob(ScheduledJobId);
+                //}
 
                 // synchronize the module settings
                 ModuleController.SynchronizeModule(ModuleId);

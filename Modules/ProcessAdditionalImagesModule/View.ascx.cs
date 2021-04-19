@@ -87,11 +87,15 @@ namespace Hotcakes.Modules.ProcessAdditionalImagesModule
             var app = HotcakesApplication.Current;
             var sb = new StringBuilder();
 
-            var downloadsFolderPath = string.Concat(DiskStorage.GetStoreDataVirtualPath(context.CurrentStore.Id), Constants.IMPORT_DOWNLOAD_FOLDER_PATH);
+            var folderPath = Convert.ToString(this.Settings[Constants.SETTINGS_DOWNLOADS_PATH]);
+            folderPath = string.IsNullOrEmpty(folderPath) ? string.Concat(DiskStorage.GetStoreDataVirtualPath(context.CurrentStore.Id), Constants.IMPORT_DOWNLOAD_FOLDER_PATH) : folderPath;
+            var downloadsFolderPath = folderPath;
 
             if (isAdditional)
             {
-                downloadsFolderPath = string.Concat(DiskStorage.GetStoreDataVirtualPath(context.CurrentStore.Id), Constants.IMPORT_ADDITIIONAL_FOLDER_PATH);
+                folderPath = Convert.ToString(this.Settings[Constants.SETTINGS_ADDITIONAL_PATH]);
+                folderPath = string.IsNullOrEmpty(folderPath) ? string.Concat(DiskStorage.GetStoreDataVirtualPath(context.CurrentStore.Id), Constants.IMPORT_ADDITIIONAL_FOLDER_PATH) : folderPath;
+                downloadsFolderPath = folderPath;
             }
 
             // create a repo to get the catalog data

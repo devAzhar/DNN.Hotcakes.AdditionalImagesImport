@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Hotcakes.Modules.ProcessAdditionalImagesModule
-{
-
-
-    public partial class SettingsView
-    {
-
+namespace Hotcakes.Modules.ProcessAdditionalImagesModule {
+    
+    
+    public partial class SettingsView {
+        
         /// <summary>
         /// fldSettings control.
         /// </summary>
@@ -22,25 +20,52 @@ namespace Hotcakes.Modules.ProcessAdditionalImagesModule
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl fldSettings;
-
+        
         /// <summary>
-        /// lblScheduledJob control.
+        /// lblDownloadFolderPath control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl lblScheduledJob;
-
+        protected global::System.Web.UI.UserControl lblDownloadFolderPath;
+        
         /// <summary>
-        /// chkScheduledJob control.
+        /// txtDownloadsFolderPath control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkScheduledJob;
-
+        protected global::System.Web.UI.WebControls.TextBox txtDownloadsFolderPath;
+        
+        /// <summary>
+        /// fldSettings2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fldSettings2;
+        
+        /// <summary>
+        /// lblAdditionalFolderPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl lblAdditionalFolderPath;
+        
+        /// <summary>
+        /// txtAdditionalFolderPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAdditionalFolderPath;
+        
         /// <summary>
         /// divMessage control.
         /// </summary>
