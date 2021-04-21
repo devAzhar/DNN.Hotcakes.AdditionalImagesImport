@@ -153,4 +153,7 @@
   <data name="ProcessAdditionalTitle.Text" xml:space="preserve">
     <value>Processing Additional Images</value>
   </data>
+  <data name="ImportFolderNotFound.Text" xml:space="preserve">
+    <value>Import folder not found.</value>
+  </data>
 </root>

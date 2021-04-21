@@ -104,54 +104,6 @@ namespace Hotcakes.Modules.ProcessAdditionalImagesModule
             // get a collection of the products in the store
             var products = repoProduct.FindAllPagedWithCache(1, int.MaxValue);
 
-            if (false && products != null && products.Count > 0)
-            {
-                var prod = products[0];
-                var path = @"C:\Users\Administrator\Desktop\HotCake\Kaimanawas, Argo Valley\Watermarked Small\test-additional.jpg";
-                var fileInfo = new FileInfo(path);
-                var fileName = Path.GetFileNameWithoutExtension(fileInfo.Name);
-                var extension = Path.GetExtension(fileInfo.Name);
-                var isValidExtension = DiskStorage.ValidateImageType(extension);
-
-                if (isValidExtension)
-                {
-                    fileName = AdditionalImageHandler.CleanFileName(fileName);
-                    var productImage = new ProductImage
-                    {
-                        Bvin = Guid.NewGuid().ToString()
-                    };
-
-                    var imageUploaded = AdditionalImageHandler.UploadAdditionalProductImage(app.CurrentStore.Id, prod.Bvin, productImage.Bvin, path, fileInfo.Name);
-
-                    if (imageUploaded)
-                    {
-                        productImage.FileName = productImage.AlternateText = fileName + extension;
-                        productImage.Caption = string.Empty;
-                        productImage.ProductId = prod.Bvin;
-                        var productImageCreated = app.CatalogServices.ProductImageCreate(productImage);
-                    }
-                }
-
-                return;
-                path = @"C:\Users\Administrator\Desktop\HotCake\Kaimanawas, Argo Valley\Watermarked Small\2020 Kaimanawas Day 4-183-azhar2.jpg";
-
-                using (var imageFile = File.Open(path, FileMode.Open))
-                {
-                    var file = AdditionalImageHandler.InitializeProductFile(prod.Bvin, path);
-
-                    // Check if the image already exists or not?
-                    // var existingImages = app.CatalogServices.ProductFiles.FindByProductId(prod.Bvin);
-
-                    var created = app.CatalogServices.ProductFiles.Create(file);
-                    var fileSaved = false;
-
-                    if (created)
-                    {
-                        fileSaved = ProductFile.SaveFile(context.CurrentStore.Id, file.Bvin, file.FileName, imageFile);
-                    }
-                }
-            }
-
             try
             {
                 // a title simply to give context of the text to follow

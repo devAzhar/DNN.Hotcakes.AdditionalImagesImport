@@ -7,8 +7,8 @@ namespace Hotcakes.Modules.ProcessAdditionalImagesModule.Components
 {
     public static class Constants
     {
-        public const string IMPORT_DOWNLOAD_FOLDER_PATH = "import/additional/";
-        public const string IMPORT_ADDITIIONAL_FOLDER_PATH = "import/additional/Watermarked/";
+        public const string IMPORT_DOWNLOAD_FOLDER_PATH = "import/download-images/";
+        public const string IMPORT_ADDITIIONAL_FOLDER_PATH = "import/additional-images/";
 
         public const string LOCALIZATION_FILE_PATH = "~/DesktopModules/ProcessAdditionalImagesModule/App_LocalResources/View.ascx.resx";
 
